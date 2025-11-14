@@ -1,13 +1,7 @@
-import {
-  Controller,
-  Get,
-  Query,
-  Res,
-  HttpStatus,
-  ParseEnumPipe,
-} from '@nestjs/common';
+import { Controller, Get, Query, Res, HttpStatus, ParseEnumPipe } from '@nestjs/common';
 import { TipsService } from './tips.service';
-import type { Category } from '../schemas/result.schema';
+import type { Category } from 'src/schemas/result.schema';
+import type { Response } from 'express';
 
 @Controller('tips')
 export class TipsController {
@@ -15,10 +9,14 @@ export class TipsController {
 
   @Get('/')
   async getTip(
-    @Query('category', new ParseEnumPipe(['git_command', 'editor', 'terminal'], {
-      optional: true,
-    })) category: Category = 'git_command',
-    @Res() res,
+    @Query(
+      'category',
+      new ParseEnumPipe(['git_command', 'editor', 'terminal'], {
+        optional: true,
+      }),
+    )
+    category: Category = 'git_command',
+    @Res() res: Response,
   ) {
     const result = await this.tipsService.getTip(category);
     return res.status(HttpStatus.OK).json({
@@ -28,7 +26,7 @@ export class TipsController {
   }
 
   @Get('/git')
-  async tipGit(@Res() res) {
+  async tipGit(@Res() res: Response) {
     const result = await this.tipsService.getTip('git_command');
     return res.status(HttpStatus.OK).json({
       status_code: HttpStatus.OK,
@@ -37,7 +35,7 @@ export class TipsController {
   }
 
   @Get('/editor')
-  async tipEditor(@Res() res) {
+  async tipEditor(@Res() res: Response) {
     const result = await this.tipsService.getTip('editor');
     return res.status(HttpStatus.OK).json({
       status_code: HttpStatus.OK,
@@ -46,7 +44,7 @@ export class TipsController {
   }
 
   @Get('/terminal')
-  async tipTerminal(@Res() res) {
+  async tipTerminal(@Res() res: Response) {
     const result = await this.tipsService.getTip('terminal');
     return res.status(HttpStatus.OK).json({
       status_code: HttpStatus.OK,
