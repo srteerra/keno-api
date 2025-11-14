@@ -20,37 +20,37 @@ export class TipsController {
     })) category: Category = 'git_command',
     @Res() res,
   ) {
-    const data = await this.tipsService.getTip(category);
+    const result = await this.tipsService.getTip(category);
     return res.status(HttpStatus.OK).json({
       status_code: HttpStatus.OK,
-      data,
+      result,
     });
   }
 
   @Get('/git')
   async tipGit(@Res() res) {
-    const data = await this.tipsService.getTip('git_command');
+    const result = await this.tipsService.getTip('git_command');
     return res.status(HttpStatus.OK).json({
       status_code: HttpStatus.OK,
-      data,
+      result,
     });
   }
 
   @Get('/editor')
   async tipEditor(@Res() res) {
-    const data = await this.tipsService.getTip('editor');
+    const result = await this.tipsService.getTip('editor');
     return res.status(HttpStatus.OK).json({
       status_code: HttpStatus.OK,
-      data,
+      result,
     });
   }
 
   @Get('/terminal')
   async tipTerminal(@Res() res) {
-    const data = await this.tipsService.getTip('terminal');
+    const result = await this.tipsService.getTip('terminal');
     return res.status(HttpStatus.OK).json({
       status_code: HttpStatus.OK,
-      data,
+      result,
     });
   }
 }

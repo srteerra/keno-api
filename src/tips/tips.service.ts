@@ -2,16 +2,8 @@ import { Injectable, HttpException } from '@nestjs/common';
 import OpenAI from 'openai';
 import { zodTextFormat } from 'openai/helpers/zod';
 import { ConfigService } from "@nestjs/config";
-import { Category, Result, CategorySchema, ExampleSchema } from '../schemas/result.schema';
-import * as z from "zod";
-
-const ResultSchema = z.object({
-  title: z.string(),
-  description: z.string(),
-  content_markdown: z.string(),
-  category: CategorySchema,
-  examples: z.array(ExampleSchema).min(1),
-});
+import { Category, Result, ResultSchema } from '../schemas/result.schema';
+import { INSTRUCTIONS } from '../prompts/instructions';
 
 @Injectable()
 export class TipsService {
@@ -38,7 +30,7 @@ export class TipsService {
 
     const response = await this.client.responses.parse({
       model: this.MODEL,
-      instructions: 'Eres un asistente que devuelve exactamente un objeto JSON válido con un tip breve y práctico para programadores.',
+      instructions: INSTRUCTIONS,
       input: [{ role: 'user', content: userMsg }],
       text: {
         format: zodTextFormat(ResultSchema, "zod_schema"),
