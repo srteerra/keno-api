@@ -1,98 +1,273 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Keno API 🚀
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+> AI-powered productivity tips API for developers
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+A NestJS REST API that generates practical, immediately actionable productivity
+tips for developers across multiple categories using OpenAI.
 
-## Description
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue)](https://www.typescriptlang.org/)
+[![NestJS](https://img.shields.io/badge/NestJS-10.x-red)](https://nestjs.com/)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+---
 
-## Project setup
+## ✨ Features
 
-```bash
-$ npm install
-```
+- 🤖 **AI-Generated Tips**: Powered by OpenAI for high-quality, contextual
+  advice
+- 🎯 **Multiple Categories**: Git, Terminal, Editor
+- ⚡ **Instant Results**: No database required, pure API responses
+- 🔒 **Type-Safe**: Built with TypeScript and Zod validation
+- 🧪 **Well Tested**: Comprehensive unit and e2e tests
+- 📦 **Easy Deploy**: Ready for Firebase, Vercel, Railway, or any Node.js
+  platform
+- 🎨 **Modular Architecture**: Easy to extend with new tip categories
 
-## Compile and run the project
+---
 
-```bash
-# development
-$ npm run start
+## 🚀 Quick Start
 
-# watch mode
-$ npm run start:dev
+### Prerequisites
 
-# production mode
-$ npm run start:prod
-```
+- Node.js >= 20.0.0
+- npm or pnpm
+- OpenAI API key ([Get one here](https://platform.openai.com/api-keys))
 
-## Run tests
+### Installation
 
 ```bash
-# unit tests
-$ npm run test
+# Clone the repository
+git clone https://github.com/yourusername/keno-api.git
+cd keno-api
 
-# e2e tests
-$ npm run test:e2e
+# Install dependencies
+npm install
 
-# test coverage
-$ npm run test:cov
+# Copy environment variables
+cp .env.example .env
+
+# Add your OpenAI API key to .env
 ```
 
-## Deployment
+### Environment Variables
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+Create a `.env` file in the root directory:
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+```env
+OPENAI_API_KEY=sk-your-openai-api-key-here
+OPENAI_MODEL=gpt-4o-mini
+PORT=3000
+NODE_ENV=development
+```
+
+### Run Development Server
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npm run start:dev
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+The API will be available at `http://localhost:3000/api`
 
-## Resources
+---
 
-Check out a few resources that may come in handy when working with NestJS:
+## 📖 API Documentation
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### Base URL
 
-## Support
+```
+http://localhost:3000/api
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Endpoints
 
-## Stay in touch
+#### Get a Tip by Category
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+**Direct Routes:**
 
-## License
+```http
+GET /api/tips/git       # Git command tips
+GET /api/tips/terminal  # Terminal/shell tips
+GET /api/tips/editor    # Code editor tips
+```
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+#### Available Categories
+
+- `git_command` - Git version control tips
+- `terminal` - Shell and terminal productivity
+- `editor` - Code editor shortcuts and features
+
+### Example cURL Request
+
+```bash
+# Get a Git tip
+curl http://localhost:3000/api/tips/git
+```
+
+---
+
+## 🏗️ Project Structure
+
+```
+src/
+├── common/              # Shared utilities
+│   ├── builders/        # Prompt builders
+│   ├── constants/       # App constants
+│   ├── exceptions/      # Custom exceptions
+│   └── helpers/         # Helper functions
+├── prompts/             # AI prompts
+├── schemas/             # Zod validation schemas
+├── tips/                # Tips module
+│   ├── tips.controller.ts
+│   ├── tips.service.ts
+│   └── tips.module.ts
+└── main.ts              # Application entry
+```
+
+---
+
+### Available Scripts
+
+```bash
+# Development
+npm run start:dev        # Start with hot-reload
+
+# Testing
+npm test                 # Run unit tests
+
+# Code Quality
+npm run lint             # Lint and fix
+npm run format           # Format with Prettier
+npm run type-check       # TypeScript type checking
+```
+
+### Code Style
+
+This project uses:
+
+- **ESLint** for linting
+- **Prettier** for formatting
+- **Husky** for pre-commit hooks
+- **Conventional Commits** for commit messages
+
+Commits are automatically formatted and linted before committing.
+
+---
+
+### Environment Variables
+
+Make sure to set these in your deployment platform:
+
+- `OPENAI_API_KEY` - Your OpenAI API key
+- `OPENAI_MODEL` - Model to use (default: `gpt-4o-mini`)
+- `NODE_ENV` - Set to `production`
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these guidelines:
+
+### Adding a New Tip Category
+
+1. **Create category rules** in `src/prompts/categories/your-category.ts`:
+
+```typescript
+export const YOUR_CATEGORY_RULES = `
+## Your Category Tips:
+- **Content format**: ...
+- **Examples**: ...
+- Focus on: ...
+`;
+```
+
+2. **Update the builder** in `src/common/builders/prompt.builder.ts`:
+
+```typescript
+import { YOUR_CATEGORY_RULES } from '../../prompts/categories/your-category';
+
+const CATEGORY_RULES: Record<Category, string> = {
+  // ... existing categories
+  your_category: YOUR_CATEGORY_RULES,
+};
+```
+
+3. **Update the schema** in `src/schemas/result.schema.ts`:
+
+```typescript
+export const CategorySchema = z.enum([
+  'git_command',
+  'terminal',
+  'editor',
+  'react',
+  'css',
+  'typescript',
+  'your_category', // Add here
+]);
+```
+
+4. **Add endpoint** in `src/tips/tips.controller.ts`:
+
+```typescript
+@Get('/your-category')
+async
+tipYourCategory(@Res()
+res: Response
+)
+{
+  const result = await this.tipsService.getTip('your_category');
+  return sendSuccess(res, result);
+}
+```
+
+5. **Add tests** in `src/tips/tips.controller.spec.ts`
+
+### Commit Message Format
+
+We use [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+feat: add Python tips category
+fix: resolve parsing error in terminal tips
+docs: update API documentation
+style: format code with prettier
+refactor: simplify prompt builder
+test: add tests for CSS tips
+chore: update dependencies
+```
+
+### Pull Request Process
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## 🧪 Testing
+
+```bash
+# Run all tests
+npm test
+```
+
+---
+
+## 📝 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE)
+file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- [NestJS](https://nestjs.com/) - Progressive Node.js framework
+- [OpenAI](https://openai.com/) - AI model provider
+- [Zod](https://zod.dev/) - TypeScript-first schema validation
+
+---
+
+**Made with ❤️ by [Terra](https://github.com/srteerra)**
